@@ -1,31 +1,65 @@
-node {
-    stage('Validate')
-    { bat 'mvn validate' }
+pipeline {
+    agent any
 
-    stage('Initialize') 
-    { bat 'mvn initialize' }
+    stages {
+        stage('Validate') {
+            steps {
+                sh 'mvn validate'
+            }
+        }
 
-    stage('Compile')
-    { bat 'mvn compile' }
-    
-    stage('Test Compile')
-    { bat 'mvn test-compile' }
-    
-    stage('Test')
-    { bat 'mvn test' }
-    
-    stage('Integration Test')
-    { bat 'mvn integration-test' }
-    
-    stage('Package')
-    { bat 'mvn package' }
-    
-    stage('Verify')
-    { bat 'mvn verify' }
-    
-    stage('Install')
-    { bat 'mvn install' }
-    
-    stage('Deploy')
-    { bat 'mvn deploy' }
+        stage('Initialize') {
+            steps {
+                sh 'mvn initialize'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+
+        stage('Test Compile') {
+            steps {
+                sh 'mvn test-compile'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Integration Test') {
+            steps {
+                sh 'mvn integration-test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+
+        stage('Verify') {
+            steps {
+                sh 'mvn verify'
+            }
+        }
+
+        stage('Install') {
+            steps {
+                sh 'mvn install'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'mvn deploy'
+            }
+        }
+    }
 }
