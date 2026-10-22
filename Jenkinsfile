@@ -1,59 +1,61 @@
+```groovy
 pipeline {
     agent any
 
     stages {
         stage('Validate') {
             steps {
-                sh 'mvn validate'
+                bat 'mvn validate'
             }
         }
 
         stage('Initialize') {
             steps {
-                sh 'mvn initialize'
+                bat 'mvn initialize'
             }
         }
 
         stage('Compile') {
             steps {
-                sh 'mvn compile'
+                bat 'mvn compile'
             }
         }
 
         stage('Test Compile') {
             steps {
-                sh 'mvn test-compile'
+                bat 'mvn test-compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Integration Test') {
             steps {
-                sh 'mvn integration-test'
+                bat 'mvn integration-test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package'
+                bat 'mvn package'
             }
         }
 
         stage('Verify') {
             steps {
-                sh 'mvn verify'
+                bat 'mvn verify'
             }
         }
 
         stage('Install') {
             steps {
-                sh 'mvn install'
+                bat 'mvn install'
             }
         }
     }
 }
+```
